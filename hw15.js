@@ -64,3 +64,15 @@ function showNumbers(start, end, interval) {
     }, interval));
 }
 showNumbers(5, 10, 500); // 5 6 7 8 9 10
+
+
+// 4) Какой результат выполнения будет у данного кода? 
+// Объяснить почему.
+
+function addBase(base) {
+  return function (num) {
+    return base + num;
+  };
+}
+let addOne = addBase(1);
+alert(addOne(5) + addOne(3));
