@@ -60,14 +60,23 @@ console.log(finalResult);
 // tips: для реализации используйте функцию setInterval()
 
 function showNumbers(start, end, interval) {
-    return console.log(setInterval(() => {
-    }, interval));
+    let i = start;
+    let timer = setInterval(function() {
+        console.log(i);
+        if (i === end) clearInterval(timer);
+        i++;
+    }, interval);
 }
 showNumbers(5, 10, 500); // 5 6 7 8 9 10
 
 
 // 4) Какой результат выполнения будет у данного кода? 
 // Объяснить почему.
+
+// Алерт выведет 10. Мы определили функцию addBase, которая принимает один аргумент base
+// и возвращает новую функцию. Возвращаемая функция так же принимает один аргумент num и возвращает сумму 
+// base и num. Функции addOne(5) и addOne(3) являются замыканием. И получается что addBase
+// добавляет какое-то значение к своему аргументу.
 
 function addBase(base) {
   return function (num) {
