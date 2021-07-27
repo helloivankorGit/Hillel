@@ -56,7 +56,7 @@ function first() {
     let inputCount = +prompt('How much is the fish?');;
   
     if(inputCount) {
-      for(let x = 0; x <= inputCount; x++) {
+      for(let x = 1; x <= inputCount; x++) {
         let input = document.createElement('input');
             input.className = 'input-item';
             input.value = `Input ${x}`;
@@ -70,7 +70,7 @@ function first() {
           input.placeholder = 'Enter email address';
         }
   
-        if(x === (inputCount - 1)) {
+        if(x === inputCount) {
           input.classList.add('margin-zero');
         }
   
