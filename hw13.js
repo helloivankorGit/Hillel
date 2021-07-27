@@ -53,7 +53,7 @@ function signUp(userName, password) {
         name: userName,
         signIn(newPassword) {
             if (newPassword == password) {
-                return `Sign in success for ${userName}`
+                return `Sign in success for ${this.name}`
             } else {
                 return 'Password is incorrect'
             }
