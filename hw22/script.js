@@ -35,16 +35,16 @@ function Aspirant(dissertationTopic, isDissertationComplete) {
     this.__proto__ = student;
     this.dissertationTopic = dissertationTopic;
     this.isDissertationComplete = isDissertationComplete;
-    this.isGrantHolder = (dissertationTopic, isDissertationComplete) => {
+    this.isGrantHolder = () => {
         return this.averageScore >= 4.5 && isDissertationComplete;
     }
 }
 
-let aspirant = new Aspirant();
+let aspirant = new Aspirant('New Topic', false);
 // averageScore: 4.8
 console.log(student.isGrantHolder()); // true
 // averageScore: 4.8, isDissertationComplete: false
-console.log(aspirant.isGrantHolder('dsadasd', false)); // false
+console.log(aspirant.isGrantHolder()); // false
 
 for (let value in aspirant) {
     console.log(value);
