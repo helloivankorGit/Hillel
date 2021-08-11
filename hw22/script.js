@@ -20,44 +20,35 @@
 // student и aspirant.
 
 let student = {
-  firstname: 'John',
-  lastname: 'Malkovich',
-  averageScore: '4.8',
-  getFullName() {
-      return `${this.firstname} ${this.lastname}`
-  },
-  isGrantHolder() {
-      if(this.averageScore >= 4) {
-          return true;
-      } else {
-          return false;
-      }
-  }
+    firstname: 'John',
+    lastname: 'Malkovich',
+    averageScore: '4.8',
+    getFullName() {
+        return `${this.firstname} ${this.lastname}`
+    },
+    isGrantHolder() {
+        return this.averageScore >= 4;
+    }
 }
 
-function Aspirant(averageScore, isDissertationComplete) {
-  this.__proto__ = student;
-  this.dissertationTopic = 'fsdfsdf';
-  this.averageScore = '4.8';
-  this.isDissertationComplete = false;
-  this.isGrantHolder = () => { 
-      if(this.averageScore >= 4.5 && this.isDissertationComplete === true) {
-          return true;
-      } else {
-          return false;
-      } 
-  } 
+function Aspirant(dissertationTopic, isDissertationComplete) {
+    this.__proto__ = student;
+    this.dissertationTopic = dissertationTopic;
+    this.isDissertationComplete = isDissertationComplete;
+    this.isGrantHolder = (dissertationTopic, isDissertationComplete) => {
+        return this.averageScore >= 4.5 && isDissertationComplete;
+    }
 }
 
 let aspirant = new Aspirant();
 // averageScore: 4.8
 console.log(student.isGrantHolder()); // true
 // averageScore: 4.8, isDissertationComplete: false
-console.log(aspirant.isGrantHolder()); // false
+console.log(aspirant.isGrantHolder('dsadasd', false)); // false
 
-for (let value in aspirant) { 
-  console.log(value); 
-} 
+for (let value in aspirant) {
+    console.log(value);
+}
 
 // ==================================================
 // 2) Создайте класс Plane со свойствами name и isFlying 
@@ -76,30 +67,23 @@ for (let value in aspirant) {
 let planes = [];
 
 class Plane {
-  constructor(name, isFlying) { 
-      this.name = false; 
-      this.isFlying = false; 
-      planes.push(this);
-  } 
-  takeOff() { 
-      return this.isFlying = true; 
-  } 
-  land() { 
-      return this.isFlying = false; 
-  } 
+    constructor(name, isFlying) {
+        this.name = name;
+        this.isFlying = false;
+    }
+    takeOff() {
+        return this.isFlying = true;
+    }
+    land() {
+        return this.isFlying = false;
+    }
 }
 
 let airport = {
-  planes: planes,
-  getFlyingPlanes() {
-      let count = '';
-      for (let i = 0; i < planes.length; i++) {
-          if (planes[i].isFlying == true) {
-              count++;
-          }
-      }
-      return count;
-  }
+    planes: planes,
+    getFlyingPlanes() {
+        return this.planes.filter(plane => plane.isFlying).length;
+    }
 }
 
 let plane1 = new Plane("First");
