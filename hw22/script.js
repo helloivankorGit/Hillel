@@ -72,10 +72,10 @@ class Plane {
         this.isFlying = false;
     }
     takeOff() {
-        return this.isFlying = true;
+        this.isFlying = true;
     }
     land() {
-        return this.isFlying = false;
+        this.isFlying = false;
     }
 }
 
@@ -90,4 +90,5 @@ let plane1 = new Plane("First");
 let plane2 = new Plane("Killer");
 plane2.takeOff();
 airport.planes.push(plane1, plane2);
+airport.planes = [...new Array(10)].map(() => new Plane('qwerty'));
 console.log(airport.getFlyingPlanes());
