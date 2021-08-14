@@ -33,9 +33,7 @@ function createSongsList(arr) {
 
     addButton('Like', 'like', li, likeSong);
     addButton('Delete', 'delete', li, deleteSong);
-    let heart = document.createElement('img');
-    heart.src = 'images/like.svg';
-    li.prepend(heart);
+    addHeart(li);
 
     if(element.isLiked) {
       li.classList.add('liked');
@@ -44,6 +42,12 @@ function createSongsList(arr) {
     songsList.append(li);
   });
   updateSongCounter();
+}
+
+function addHeart(target) {
+  let heart = document.createElement('img');
+  heart.src = 'images/like.svg';
+  target.prepend(heart);
 }
 
 function addButton(title, className, target, func) {
@@ -69,9 +73,7 @@ function addSong(songName) {
 
   addButton('Like', 'like', li, likeSong);
   addButton('Delete', 'delete', li, deleteSong);
-  let heart = document.createElement('img');
-  heart.src = 'images/like.svg';
-  li.prepend(heart);
+  addHeart(li);
 
   songsList.append(li);
   updateSongCounter();
