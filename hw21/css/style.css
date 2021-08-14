@@ -23,6 +23,10 @@
   justify-content: flex-end;
 }
 
+.songs li span {
+  margin-right: auto;
+}
+
 .songs li.liked img {
   opacity: 1;
 }
@@ -43,6 +47,7 @@
   margin-left: 10px;
   cursor: pointer;
   transition: background-color .2s;
+  min-width: 60px;
 }
 .button:hover {
   background-color: #ccc;
@@ -53,7 +58,6 @@
 }
 .like {
   background-color: #ff9fa4;
-  margin-left: auto;
 }
 .delete {
   background-color: #a6e2f5;
