@@ -31,8 +31,8 @@ function createSongsList(arr) {
     let li = document.createElement('li');
     li.innerHTML = element.name;
 
-    addButton('Like', 'like', li);
-    addButton('Delete', 'delete', li);
+    addButton('Like', 'like', li, likeSong);
+    addButton('Delete', 'delete', li, deleteSong);
     let heart = document.createElement('img');
     heart.src = 'images/like.svg';
     li.prepend(heart);
@@ -46,19 +46,29 @@ function createSongsList(arr) {
   updateSongCounter();
 }
 
-function addButton(title, className, target) {
+function addButton(title, className, target, func) {
   let button = document.createElement('button');
   button.innerHTML = title;
   button.classList.add('button', className);
+  button.addEventListener('click', func);
   target.append(button);
+}
+
+function deleteSong(event) {
+  event.target.parentElement.remove();
+  updateSongCounter();
+}
+
+function likeSong(event) {
+  event.target.parentElement.classList.toggle('liked');
 }
 
 function addSong(songName) {
   let li = document.createElement('li');
   li.innerHTML = songName;
 
-  addButton('Like', 'like', li);
-  addButton('Delete', 'delete', li);
+  addButton('Like', 'like', li, likeSong);
+  addButton('Delete', 'delete', li, deleteSong);
   let heart = document.createElement('img');
   heart.src = 'images/like.svg';
   li.prepend(heart);
@@ -70,13 +80,3 @@ function addSong(songName) {
 function updateSongCounter() {
   songCounter.innerHTML = document.querySelectorAll(".songs li").length;
 }
-
-songsList.addEventListener('click', function(event) {
-  let clickedElement = event.target;
-  if(clickedElement.classList.contains('delete')) {
-    clickedElement.parentElement.remove();
-    updateSongCounter();
-  } else if (clickedElement.classList.contains('like')) {
-    clickedElement.parentElement.classList.toggle('liked');
-  }
-})
