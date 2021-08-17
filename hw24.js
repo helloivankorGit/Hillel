@@ -23,7 +23,7 @@ let promise = new Promise((resolve, reject) => {
             console.log('Start the game ...');
             resolve(number);
         }
-        if(number = 6) {
+        if(number === 6) {
             reject('Exit');
         }
     }, 2000)
@@ -33,8 +33,7 @@ promise
     .then((data) => {
         if(data === 1) {
             console.log('Stay here');
-        }
-        if(data >= 2) {
+        } else {
             console.log(`Go ${data} steps`)
         }
     })
