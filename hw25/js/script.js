@@ -1,20 +1,23 @@
 let randomCharacters = Array.from({length: 10}, () => Math.floor(Math.random() * 671));
 
 async function getCharacters(type, value) {
+	let response;
 	if(value !== undefined) {
-		var response = await fetch(`https://rickandmortyapi.com/api/character/?${type}=${value}`);
+		response = await fetch(`https://rickandmortyapi.com/api/character/?${type}=${value}`);
 	} else {
-		var response = await fetch(`https://rickandmortyapi.com/api/character/${randomCharacters.toString()}`);
+		response = await fetch(`https://rickandmortyapi.com/api/character/${randomCharacters.toString()}`);
 	}
 	return response.json();
 }
 
 async function start(type, value) {
-    let data = await getCharacters(type, value);
+    let data = await getCharacters(type, value),
+	arr;
+	
 	if(value !== undefined) {
-		var arr = data.results;
+		arr = data.results;
 	} else {
-		var arr = data;
+		arr = data;
 	}
 
 	arr.forEach(element => {
