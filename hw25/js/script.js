@@ -1,27 +1,44 @@
 let randomCharacters = Array.from({length: 10}, () => Math.floor(Math.random() * 671));
 
-async function getCharacters () {
-    let response = await fetch(`https://rickandmortyapi.com/api/character/${randomCharacters.toString()}`);
+async function getCharacters(type, value) {
+	if(value !== undefined) {
+		var response = await fetch(`https://rickandmortyapi.com/api/character/?${type}=${value}`);
+	} else {
+		var response = await fetch(`https://rickandmortyapi.com/api/character/${randomCharacters.toString()}`);
+	}
 	return response.json();
 }
 
-async function start() {
-    let data = await getCharacters();
-    data.forEach(element => {
-        createCard(element.name, element.species, element.status, element.location.name, element.image, element.gender);
-    });
-	console.log(data);
+async function start(type, value) {
+    let data = await getCharacters(type, value);
+	if(value !== undefined) {
+		var arr = data.results;
+	} else {
+		var arr = data;
+	}
+
+	arr.forEach(element => {
+		createCard(element.name, element.species, element.status, element.location.name, element.image, element.gender);
+	});
 }
 
 start();
+
+let input = document.querySelector('input'),
+	checkboxContainer = document.querySelector('.form-container');
+
+checkboxContainer.addEventListener('click', function(event) {
+	if (event.target.type === 'button') {
+		container.innerHTML = ''
+		start(event.target.name, event.target.id);
+	}
+});
 
 const container = document.querySelector('.container');
 
 function createCard(characterName, characterSpecies, characterStatus, location, imageUrl, gender) {
 	const card = document.createElement('div');
 	card.classList.add('card');
-	card.setAttribute('data-gender', gender);
-	card.setAttribute('data-status', characterStatus);
 
 	const cardInfo = document.createElement('div');
 	cardInfo.classList.add('card-info');
