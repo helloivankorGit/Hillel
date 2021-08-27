@@ -5,34 +5,38 @@ import Veterinarian from './veterinarian.js';
 import Person from './person.js';
 
 function main() {
-    let hospital1 = new Hospital('Central Hospital', 'Jack', 'Victor');
-    let veterinar = new Veterinarian('Dr. Andrey', 'Gorodetskiy', 'Central Hospital');
-    let cat1 = new Cat('Shiko', 'fish', 'home', true);
-    let dog1 = new Dog('Rex', 'meat', 'street', 14);
-    let dog2 = new Dog('Anna', 'everything', 'home', 32);
-    let person1 = new Person('Olga', 'Buzova');
-    let person2 = new Person('Nelly', 'Uvarova');
+    const hospital = new Hospital('Central Hospital');
+
+    const veterinar = new Veterinarian('Dr. Andrey', 'Gorodetskiy', hospital);
+
+    hospital.addPeople(
+        new Person('Random', 'Person1'),
+        new Person('Random', 'Person2'),
+        new Person('Random', 'Person3'),
+        new Person('Random', 'Person4'),
+        new Person('Random', 'Person5'),
+        new Person('Random', 'Person6'),
+        new Person('Random', 'Person7')
+    )
+
+    let cat1 = new Cat('Shiko', 'pet food', 'Kharkiv');
+    let cat2 = new Cat('Tom', 'fish', 'Tbilisi');
+    let dog1 = new Dog('Rex', 'meat', 'Kharkiv', 14);
+    let dog2 = new Dog('Anna', 'everything', 'Batumi', 32);
+    let dog3 = new Dog('Spike', 'pet food', 'Manchester', 12);
+
+    let arr = [cat1, cat2, dog1, dog2, dog3];
 
     console.group(veterinar.getFullName());
-    console.log(conclusion.info);
-    // console.log(conclusion.info);
-    // console.log(conclusion.fullDiagnos);
-    // console.groupEnd();
-    // console.log('Animals in the hospital: ' + illAnimalNicknames);
-    // console.log(hospital1);
-    // console.log(veterinar);
-    // console.log(cat1);
-    // console.log(dog1);
-    // console.log(dog2);
-    // console.log(person1);
-    // console.log(person2);
+
+    arr.forEach(item => {
+        console.log(veterinar.treatAnimal(item));
+    });
+
+    console.groupEnd();
+
+    let arrClinic = hospital.getAnimals().map(item => item[0].nickname);
+    console.log(`Animals in the hospital: ${arrClinic}`)
 }
-
-
-// let student1 = new Student('Bob', 'Marley', 99);
-// let student2 = new Student('Alina', 'Malina', 18);
-
-// console.log(student1.getName());
-// console.log(student2.getName());
 
 main();

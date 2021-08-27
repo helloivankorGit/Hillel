@@ -4,4 +4,8 @@ export default class Animal {
         this.food = food;
         this.location = location;
     }
+
+    changeFood(meal) {
+        return this.food = meal;
+    }
 }

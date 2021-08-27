@@ -2,10 +2,8 @@ export default class Hospital {
     #illAnimals = [];
     #findingPetsPeople = [];
     
-    constructor(name, illAnimals, findingPetsPeople) {
+    constructor(name) {
         this.name = name;
-        this.#illAnimals = illAnimals;
-        this.#findingPetsPeople = findingPetsPeople;
     }
 
     getAnimals() {
@@ -16,26 +14,26 @@ export default class Hospital {
         return this.#findingPetsPeople;
     }
 
-    addAnimal(petName) {
-        illAnimals.push(petName);
+    addAnimal(...pet) {
+        this.#illAnimals.push(pet);
     }
 
-    addPeople(customers, oneCustomer) {
-        findingPetsPeople.push(...customers, oneCustomer);
+    addPeople(...customers) {
+        this.#findingPetsPeople = [...this.#findingPetsPeople, ...customers];
     }
 
-    findHome(illPetName) {
-        if(illAnimals.includes(illPetName)) {
+    findHome(animal) {
+        if (this.#illAnimals.find(item => item.nickname === animal.nickname)) {
             return {
-                status: restricted,
-                message: `We need to heal ${illPetName} firstly`
+                status: 'restricted',
+                message: `We need to heal ${animal.nickname} firstly`
             }
         } else {
-            let itemToRemove = findingPetsPeople[Math.floor(Math.random() * findingPetsPeople.length)]
-            filteredPeople = findingPetsPeople.filter(item => item !== itemToRemove);
+            let itemToRemove = this.#findingPetsPeople.splice((Math.floor(Math.random() * this.#findingPetsPeople.length)), 1)[0].getFullName();
+
             return {
-                status: success,
-                name: `${firstName} ${lastName}`
+                status: 'success',
+                name: itemToRemove
             }
         }
     }
