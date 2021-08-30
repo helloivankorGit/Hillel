@@ -18,15 +18,15 @@ function startCount() {
             console.log(`${difference} seconds have passed`);
         } else {
             console.log('Enabled');
-            startTime = new Date().getTime() / 1000;
         }
+        startTime = new Date().getTime() / 1000;
     }
 }
 
 let getTime = startCount();
 getTime();
 setTimeout(() => getTime(), 2000);
-setTimeout(() => getTime(), 3000);
+setTimeout(() => getTime(), 5000);
 setTimeout(() => getTime(), 10000);
 setTimeout(() => getTime(), 60000);
 
