@@ -23,6 +23,8 @@ function startCount() {
     }
 }
 
+// разницу в секундах между последним вызовом и теперешним. А у тебя разница в секундах от первого старта
+
 let getTime = startCount();
 getTime();
 setTimeout(() => getTime(), 2000);
@@ -33,10 +35,6 @@ setTimeout(() => getTime(), 60000);
 // 2) Создать таймер обратного отсчета, который будет в console выводить время в 
 // формате MM:SS. Где MM - количество минут, SS - количество секунд. 
 // При этом когда закончится время, нужно вывести в console строку "Timer End".
-
-// const timer = time => {
-    
-// }
 
 function timer(duration) {
     let timer = duration, minutes, seconds;
