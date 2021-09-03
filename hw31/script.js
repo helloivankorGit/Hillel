@@ -13,13 +13,13 @@ function startCount() {
 
     return function() {
         if (startTime) {
-            newTime = new Date().getTime() / 1000;
-            difference = parseInt(newTime - startTime);
+            newTime = new Date().getTime();
+            difference = parseInt((newTime - startTime) / 1000);
             console.log(`${difference} seconds have passed`);
         } else {
             console.log('Enabled');
         }
-        startTime = new Date().getTime() / 1000;
+        startTime = new Date().getTime();
     }
 }
 
