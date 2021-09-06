@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Homeworks</title>
 </head>
 
@@ -14,13 +14,19 @@
       {{#homeworks}}
       <li>
         <a href="/homework-details/{{_id}}">{{title}}</a>
-      <a href="/edit-homework/{{_id}}">Edit</a>
-        <a href="/delete-homework/{{_id}}">Delete</a>
+        <button>
+          <a class="btn" href="/edit-homework/{{_id}}">Edit</a>
+        </button>
+        <button>
+          <a class="btn" href="/delete-homework/{{_id}}">Delete</a>
+        </button>
       </li>
       {{/homeworks}}
     </ol>
-    <div class="create-homework">
-      <a href="/create-homework">Create Homework</a>
+    <div class="add-hw">
+      <button>
+        <a class="btn" href="/create-homework">Create Homework</a>
+      </button>
     </div>
 </body>
 

@@ -20,6 +20,15 @@ homeworks.forEach(hw => {
 	delete hw.createdAt;
 });
 
+function id() {
+  let id = 0;
+  return function () {
+    return ++id;
+  }
+}
+
+let hometaskID = id();
+
 const readFilePromise = util.promisify(fs.readFile);
 const writeFilePromise = util.promisify(fs.writeFile);
 
@@ -45,6 +54,7 @@ const server = http.createServer(async (req, res) => {
 			req.on('end', () => {
 				console.log('Finished');
 				const parsed = queryString.parse(data);
+        parsed._id = 'fsdf234234e' + hometaskID();
 				homeworks.unshift(parsed);
 				fs.writeFile(pathTohomeworkJSON, JSON.stringify(homeworks), 'utf-8', (err) => {
 					if (err) {
