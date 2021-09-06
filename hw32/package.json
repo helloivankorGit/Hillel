@@ -5,17 +5,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js --watch"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "http": "0.0.1-security"
-  },
   "dependencies": {
     "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "mustache": "^4.2.0",
     "nodemon": "^2.0.12",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "query-string": "^7.0.1",
+    "util": "^0.12.4"
   }
 }
