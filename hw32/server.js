@@ -1,5 +1,7 @@
 import http from 'http';
-import fs, { readFileSync } from 'fs';
+import fs, {
+	readFileSync
+} from 'fs';
 import path from 'path';
 import Mustache from 'mustache';
 import queryString from 'query-string';
@@ -21,10 +23,10 @@ homeworks.forEach(hw => {
 });
 
 function id() {
-  let id = 0;
-  return function () {
-    return ++id;
-  }
+	let id = 0;
+	return function() {
+		return ++id;
+	}
 }
 
 let hometaskID = id();
@@ -54,7 +56,7 @@ const server = http.createServer(async (req, res) => {
 			req.on('end', () => {
 				console.log('Finished');
 				const parsed = queryString.parse(data);
-        parsed._id = 'fsdf234234e' + hometaskID();
+				parsed._id = 'fsdf234234e' + hometaskID();
 				homeworks.unshift(parsed);
 				fs.writeFile(pathTohomeworkJSON, JSON.stringify(homeworks), 'utf-8', (err) => {
 					if (err) {
