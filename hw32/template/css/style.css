@@ -59,3 +59,16 @@ body {
 p {
     margin-bottom: 0;
 }
+
+.btn {
+    text-decoration: none;
+    color: #000;
+}
+
+.add-hw {
+    padding: 20px;
+}
+
+body {
+    padding: 20px;
+}
