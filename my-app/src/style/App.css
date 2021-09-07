@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box;
+}
+
+.songs-wrapper {
+    margin-top: 5px;
+    background-color: #fff599;
+    max-width: 550px;
+}
+
+.songs {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.song__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.song__item.liked img {
+    opacity: 1;
+}
+
+.song__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+.songs img {
+    margin-right: 10px;
+    width: 20px;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.button {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+    min-width: 60px;
+}
+
+.button:hover {
+    background-color: #ccc;
+}
+
+.add {
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+.like {
+    background-color: #ff9fa4;
+}
+
+.delete {
+    background-color: #a6e2f5;
+}
+
+.input-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.count-title span {
+    color: #646464;
+    font-weight: bold;
+}
+
+.like-icon {
+    height: 100%;
+    margin-left: 10px;
+}
+
+.song__date {
+    font-weight: bold;
+}
+
+.song__info {
+    margin-right: auto;
+}
