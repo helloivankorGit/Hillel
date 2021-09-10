@@ -1,15 +1,18 @@
-import LikeButton from "./LikeButton";
-import DeleteButton from "./DeleteButton";
+import Button from './UI/button/Button';
+import LikeButton from './UI/button/LikeButton';
+import logo from '../images/like.svg';
+import classes from "../style/SongItem.module.css";
 
-function SongItem ({ song }) {
+function SongItem ({ song, deleteSong }) {
     return(
-        <li className="song__item">
-            <div className="song__info">
-                {song.author} - {song.name} ({song.albumName})
-                <div className="song__date">{song.releaseDate}</div>
+        <li className={classes.SongItem}>
+            <img src={logo} alt="" className={classes.LikeIcon} />
+            <div className={classes.SongInfo}>
+                {song.author} - {song.title} ({song.album})
+                <div className={classes.SongDate}>{song.year}</div>
             </div>
             <LikeButton />
-            <DeleteButton />
+            <Button onClick={() => deleteSong(song.id)} customClassName='DeleteSongButton'>Delete</Button>
         </li>
     );
 }
