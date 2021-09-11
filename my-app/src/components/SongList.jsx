@@ -1,14 +1,22 @@
 import SongItem from "./SongItem";
-import SongsArray from "./SongsArray";
+import classes from "../style/SongList.module.css";
 
-function SongList() {
+function SongList({ songs, deleteSong }) {
     return (
-        <div className="songs-wrapper">
-            <ul className="songs">
+        <div className={classes.songs__wrapper}>
+        {
+            songs.length
+            ? <ol className={classes.songs}>
                 {
-                    SongsArray.map(songItem => <SongItem song={songItem} key={songItem.id} />)
+                songs.map(songItem => <SongItem 
+                song={songItem}
+                deleteSong={deleteSong}
+                key={songItem.id}
+                />)
                 }
-            </ul>
+            </ol>
+            : <h1 style={ { textAlign: 'center' } }>Not Found Any Songs</h1>
+        }
         </div>
     );
 };

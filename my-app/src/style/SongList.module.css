@@ -1,0 +1,11 @@
+.songs__wrapper {
+    margin-top: 5px;
+    background-color: #fff599;
+    max-width: 550px;
+}
+
+.songs {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}

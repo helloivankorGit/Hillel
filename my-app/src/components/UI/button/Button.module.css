@@ -1,0 +1,23 @@
+.AddSongButton {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin: 0;
+  }
+
+  button {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+    min-width: 60px;
+  }
+
+  button:hover {
+    background-color: #ccc;
+  }
+
+  .DeleteSongButton {
+    background-color: #a6e2f5;
+  }
