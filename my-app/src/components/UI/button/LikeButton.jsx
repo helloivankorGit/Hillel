@@ -1,22 +1,11 @@
 import classes from './LikeButton.module.css';
 
-function LikeButton() {
-    function toggleLike(event) {
-        let clickedElement = event.target;
-
-        clickedElement.parentElement.classList.toggle('liked');
-        clickedElement.classList.toggle('active');
-
-        if(clickedElement.classList.contains('active')) {
-            clickedElement.innerHTML = 'Unlike'
-        } else {
-            clickedElement.innerHTML = 'Like'
-        }
-    };
-
+function LikeButton({ likeSong, song, children }) {
     return (
-        <button className={classes.LikeSongButton} onClick={(e) => toggleLike(e)}>Like</button>
+      <button className={classes.likeButton} onClick={() => likeSong(song.id)}>
+        {children}
+      </button>
     );
-};
+  }
 
 export default LikeButton;
