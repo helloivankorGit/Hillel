@@ -4,7 +4,7 @@ function SongSearch({ searchQuery, setSearchQuery }) {
   return (
     <SongInput
       value={searchQuery}
-      placeholder="Search song by name..."
+      placeholder="Search song by title..."
       onChange={(event) => setSearchQuery(event.target.value)}
     />
   );
