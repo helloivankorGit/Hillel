@@ -1,4 +1,4 @@
-export const initialSongs = [
+let songs = [
     {
         id: 1, 
         title: 'Jingle Bells',
@@ -40,3 +40,5 @@ export const initialSongs = [
         isLiked: true
     }
 ]
+
+export default songs;

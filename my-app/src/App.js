@@ -1,44 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+import './style/App.css';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
+import Navigation from './components/UI/navigation/Navigation';
+import { AuthContext } from './context';
 
-import AddNewSong from "./components/AddSong";
-import SongList from "./components/SongList";
-import Button from './components/UI/button/Button';
-import Modal from './components/UI/modal/Modal';
-import Counter from './components/Counter';
 
-import { initialSongs } from './songs';
 
-import "./style/App.css";
+
 
 function App() {
-  const [songs, setSongs] = useState(initialSongs);
-  const [modal, setModal] = useState(false);
-
-  const generateId = () => {
-    if (!songs.length) {
-      return 1;
-    }
-    return songs[songs.length - 1].id + 1
-  };
-
-  const addSong = (song) => {
-    setSongs([...songs, song]);
-    setModal(false);
-  }
-
-  const deleteSong = (id) => {
-    setSongs(songs.filter(song => song.id !== id));
-  }
+  const [isUserLogin, setIsUserLogin] = useState(false);
 
   return (
-    <div className="App">
-      <Button onClick={() => setModal(true)} customClassName='AddSongButton'>Add song</Button>
-      <Modal visible={modal} setVisible={setModal}>
-      <AddNewSong addSong={addSong} generateId={generateId}/>
-      </Modal>
-      <SongList songs={songs} deleteSong={deleteSong} />
-      <Counter songs={songs} />
-    </div>
+    <AuthContext.Provider value={{ isUserLogin, setIsUserLogin }}>
+      <BrowserRouter>
+        <Navigation />
+        <AppRouter />
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 
