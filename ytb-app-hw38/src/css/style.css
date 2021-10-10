@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    font-family: monospace;
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0 0 20px;
+}
+
+figcaption {
+    font-weight: 600;
+}
