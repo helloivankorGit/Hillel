@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/style.css";
 import Input from "./UI/input/Input";
 import Video from "./UI/video/Video";
-import { searchVideos } from "../api/youtube";
+import { youtubeAxios } from "../api/youtube";
 
 export default class App extends Component {
   constructor() {
@@ -16,7 +16,11 @@ export default class App extends Component {
   }
 
   onSearchSubmit = async (query) => {
-    const { data: { items } } = await searchVideos(query);
+    const { data: { items } } = await youtubeAxios.get('/search', {
+      params: {
+        q: query
+      }
+    })
     this.setState({
       videos: items,
       firstFrameURL: items[0].id.videoId,
