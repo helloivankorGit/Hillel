@@ -1,0 +1,25 @@
+input[type='text'] {
+    padding: 10px;
+}
+
+input[type='submit'] {
+    padding: 12px;
+    margin-left: 10px;
+    background-color: red;
+    color: #fff;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    transition: .2s background-color;
+}
+
+input[type='submit']:hover {
+    background-color: rgb(87, 35, 35);
+}
+
+form {
+    margin-bottom: 20px;
+    background-color: rgb(85, 153, 255);
+    padding: 20px;
+    text-align: center;
+}

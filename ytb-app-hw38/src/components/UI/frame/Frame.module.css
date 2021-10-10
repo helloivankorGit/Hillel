@@ -1,0 +1,8 @@
+.videoframe_block {
+  width: calc(100% - 350px);
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+}

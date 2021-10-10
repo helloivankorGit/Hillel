@@ -1,0 +1,22 @@
+.preview_block {
+    margin-bottom: 30px;
+}
+
+.preview_title {
+    margin-top: 10px;
+}
+
+.preview_img {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.preview_img:hover img {
+    transform: scale(1.1);
+}
+
+.preview_img img {
+    display: block;
+    transition: .3s transform;
+}
